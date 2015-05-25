@@ -9,7 +9,7 @@ namespace OpenMarket.Data
     using Model;
     using Repositories;
 
-    class OpenMarketData : IOpenMarketData
+    public class OpenMarketData : IOpenMarketData
     {
         private IOpenMarketDbContext context;
         private IDictionary<Type, Object> repositories;

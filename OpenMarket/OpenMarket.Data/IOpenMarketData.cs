@@ -9,7 +9,7 @@ namespace OpenMarket.Data
     using Model;
     using Repositories;
 
-    interface IOpenMarketData
+    public interface IOpenMarketData
     {
         IRepository<User> Users { get; }
 

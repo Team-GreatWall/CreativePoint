@@ -1,17 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace OpenMarket.MvcApp.Controllers
+﻿namespace OpenMarket.MvcApp.Controllers
 {
+    using System.Web.Mvc;
+    using Data;
+
     public class BaseController : Controller
     {
-        // GET: Base
-        public ActionResult Index()
+        private IOpenMarketData data;
+
+        public IOpenMarketData Data
         {
-            return View();
+            get { return this.data; }
+        }
+
+        public BaseController()
+            : this(new OpenMarketData(new OpenMarketDbContext()))
+        {
+
+        }
+
+        public BaseController(IOpenMarketData data)
+        {
+            this.data = data;
         }
     }
 }
